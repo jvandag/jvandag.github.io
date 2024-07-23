@@ -142,6 +142,24 @@ nav a:hover, nav a:active {
   display: flex;
   align-items: center;
 }
+.navToggleLabel span, .navToggleLabel span::before, .navToggleLabel span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+.navToggleLabel span::before, .navToggleLabel span::after {
+  content: "";
+  position: absolute;
+}
+.navToggleLabel span::before {
+  bottom: 9px;
+}
+.navToggleLabel span::after {
+  top: 9px;
+}
 
 @media screen and (min-width: 720px) {
   .navToggleLabel {
