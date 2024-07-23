@@ -94,7 +94,8 @@ nav {
       opacity: 0;
       transition: opacity 150ms ease-in-out;
     }
-    a:hover {
+    
+    a:hover, a:active {
       color: rgb(68, 68, 68);
     }
 }
