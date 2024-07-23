@@ -108,11 +108,11 @@ nav a::before, nav a::after {
 }
 nav a::before {
   top: 0;
-  transform-origin: left;
+  transform-origin: center;
 }
 nav a::after {
   bottom: 0;
-  transform-origin: right;
+  transform-origin: center;
 }
 nav a:hover::before, nav a:hover::after {
   transform: scaleX(1);
