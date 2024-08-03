@@ -1655,9 +1655,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var particles_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! particles.js */ "./node_modules/particles.js/particles.js");
 /* harmony import */ var particles_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(particles_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/index.css */ "./src/css/index.css");
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 
 
 
+var createBionicText = function createBionicText() {
+  var textElems = document.getElementsByClassName("bionicText");
+  console.log(textElems);
+  var i = 0;
+  var _iterator = _createForOfIteratorHelper(textElems),
+    _step;
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var textBlock = _step.value;
+      var temp = textBlock.textContent.split(' ').map(function (word) {
+        var numBold = Math.ceil(word.length / 2);
+        return "<b>".concat(word.slice(0, numBold), "</b>").concat(word.slice(numBold));
+      });
+      temp = temp.join(' ');
+      textElems[i].innerHTML = temp;
+      i++;
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+};
+var adjustContentCSS = function adjustContentCSS() {
+  var navBar = document.getElementById("navBar");
+  var offset = navBar.offsetHeight;
+  var container = document.getElementById("pageWrapper");
+  //container.style.paddingTop = `${offset*0.9}px`;   
+
+  var contentBG = document.getElementById("contentBGWrapper");
+  contentBG.style.backgroundImage = "linear-gradient(transparent ".concat(offset - 1, "px, rgba(205, 205, 226, 0.75) calc(").concat(offset, "px + 3.5rem), rgba(205, 205, 226, 0.75) calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))");
+  var content = document.getElementById("contentContainer");
+  //content.style.backgroundImage = `linear-gradient(transparent ${offset-1}px, black calc(${offset}px + 3.5rem), black calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))`
+};
+adjustContentCSS();
+createBionicText();
+
+/*
+check if browser is not webkit based
+if not special js must be run for background-clip: text
+*/
+if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
+  //not webkit based
+}
 _assets_particles_json__WEBPACK_IMPORTED_MODULE_0__.particles.move.speed = parseFloat((window.outerHeight / 385).toFixed(2));
 console.log(_assets_particles_json__WEBPACK_IMPORTED_MODULE_0__.particles.move.speed);
 particlesJS("particles-js", _assets_particles_json__WEBPACK_IMPORTED_MODULE_0__);
