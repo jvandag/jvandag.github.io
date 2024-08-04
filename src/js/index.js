@@ -35,25 +35,12 @@ const adjustContentCSS = () => {
         content.style.backgroundImage = 'none'
         content.style.background = 'none'
         content.style.color = 'black'
-        console.log("settingBG to none")
-
-        navBar.style.backgroundColor = 'rgb(199, 199, 223)';
     }
     
 }
 
 adjustContentCSS();
 createBionicText();
-
-
-/*
-check if browser is not webkit based
-if not special js must be run for background-clip: text
-*/
-if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
-    //not webkit based
-    
-}
 
 config.particles.move.speed = parseFloat((window.outerHeight / 385).toFixed(2))
 console.log(config.particles.move.speed)
