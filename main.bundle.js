@@ -1688,23 +1688,21 @@ var adjustContentCSS = function adjustContentCSS() {
   var navBar = document.getElementById("navBar");
   var offset = navBar.offsetHeight;
   var container = document.getElementById("pageWrapper");
-  //container.style.paddingTop = `${offset*0.9}px`;   
+  //container.style.paddingTop = `${offset*0.9}px`;  
 
   var contentBG = document.getElementById("contentBGWrapper");
   contentBG.style.backgroundImage = "linear-gradient(transparent ".concat(offset - 1, "px, rgba(205, 205, 226, 0.75) calc(").concat(offset, "px + 3.5rem), rgba(205, 205, 226, 0.75) calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))");
-  var content = document.getElementById("contentContainer");
-  //content.style.backgroundImage = `linear-gradient(transparent ${offset-1}px, black calc(${offset}px + 3.5rem), black calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))`
+  if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
+    //not webkit based
+    //remove text clip color if not webkitbased
+    var content = document.getElementById("contentContainer");
+    content.style.backgroundImage = 'none';
+    content.style.background = 'none';
+    content.style.color = 'black';
+  }
 };
 adjustContentCSS();
 createBionicText();
-
-/*
-check if browser is not webkit based
-if not special js must be run for background-clip: text
-*/
-if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
-  //not webkit based
-}
 _assets_particles_json__WEBPACK_IMPORTED_MODULE_0__.particles.move.speed = parseFloat((window.outerHeight / 385).toFixed(2));
 console.log(_assets_particles_json__WEBPACK_IMPORTED_MODULE_0__.particles.move.speed);
 particlesJS("particles-js", _assets_particles_json__WEBPACK_IMPORTED_MODULE_0__);

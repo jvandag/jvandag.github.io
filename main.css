@@ -2,11 +2,13 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/index.css ***!
   \*********************************************************************/
 :root {
-  --NavBackground: rgba(205, 205, 226, 0.74);
+  --NavBackground: rgba(205, 205, 226, 1);
   --Background: rgba(205, 205, 226, 0.76);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -120,24 +122,46 @@ canvas {
   font-weight: bold;
 }
 
+#navContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#nameHeader {
+  text-shadow: 0px 0px 0.1em rgba(7, 42, 155, 0.5);
+  position: fixed;
+  margin: auto;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
 header {
+  display: grid;
+  grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
+  text-shadow: 0px 0px 0.1em rgb(7, 42, 155);
   padding: 0.5rem;
   background: var(--NavBackground);
   text-align: center;
   position: fixed;
   z-index: 1000;
-  width: 100%;
+  width: 92vw;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .logo {
   margin: 0;
   position: relative;
-  display: inline-block;
+  grid-column: 2;
+  display: block;
+  justify-content: right;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .logo img {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 45%;
+  left: 45%;
   height: 90%;
   border-radius: 50%;
   border: 2px solid rgba(0, 0, 0, 0.6);
@@ -145,23 +169,31 @@ header {
   transition: 0.3s;
 }
 
+.logo img:hover {
+  filter: contrast(80%) hue-rotate(10deg) brightness(80%) drop-shadow(-0.1em 0.1em 0.1em rgba(57, 71, 119, 0.733));
+}
+
 nav {
-  position: absolute;
-  text-align: left;
-  top: 100%;
-  left: 0;
-  background: var(--NavBackground);
-  width: 100%;
-  transform: scale(1, 0);
-  transform-origin: top;
-  transition: transform 400ms ease-in-out;
+  all: unset;
+  font-family: Constantia;
+  grid-column: 3/4;
+}
+nav * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
+  justify-content: space-evenly;
 }
 nav ul li {
+  display: block;
+  flex: 0 1 auto;
+  margin-top: 0.75em;
   margin-bottom: 1em;
   margin-left: 1em;
 }
@@ -172,7 +204,7 @@ nav a {
   font-size: 1.2rem;
   text-transform: uppercase;
   display: inline-block;
-  opacity: 0;
+  opacity: 0.8;
   transition: opacity 150ms ease-in-out;
 }
 nav a::before, nav a::after {
@@ -181,7 +213,7 @@ nav a::before, nav a::after {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: transparent;
+  background-color: black;
   transform: scaleX(0);
   transition: transform 300ms ease-in-out;
 }
@@ -194,135 +226,10 @@ nav a::after {
   transform-origin: center;
 }
 nav a:hover::before, nav a:hover::after {
-  background-color: black;
   transform: scaleX(1);
 }
 nav a:hover, nav a:active {
   color: rgb(68, 68, 68);
-}
-
-.navToggle {
-  display: none;
-}
-
-.navToggle:checked ~ nav {
-  transform: scale(1, 1);
-}
-.navToggle:checked ~ nav a {
-  opacity: 0.8;
-  transition: opacity 250ms ease-in-out;
-}
-
-.navToggleLabel {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 1em;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.navToggleLabel span, .navToggleLabel span::before, .navToggleLabel span::after {
-  display: block;
-  background: white;
-  height: 2px;
-  width: 2em;
-  border-radius: 2px;
-  position: relative;
-}
-.navToggleLabel span::before, .navToggleLabel span::after {
-  content: "";
-  position: absolute;
-}
-.navToggleLabel span::before {
-  bottom: 9px;
-}
-.navToggleLabel span::after {
-  top: 9px;
-}
-
-#nameHeader {
-  text-shadow: 0px 0px 0.1em rgba(7, 42, 155, 0.5);
-  position: fixed;
-  margin: auto;
-  width: 100%;
-  font-size: 1.5rem;
-}
-
-@media screen and (min-width: 720px) {
-  .navToggleLabel {
-    display: none;
-  }
-  header {
-    display: grid;
-    grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
-    text-shadow: 0px 0px 0.1em rgb(7, 42, 155);
-  }
-  .logo {
-    grid-column: 2;
-    display: block;
-    justify-content: right;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
-  }
-  .logo img:hover {
-    filter: contrast(80%) hue-rotate(40deg) brightness(45%) drop-shadow(-0.1em 0.1em 0.1em rgba(7, 42, 155, 0.733));
-  }
-  nav {
-    all: unset;
-    font-family: Constantia;
-    grid-column: 3/4;
-  }
-  nav * {
-    -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
-  }
-  nav ul {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  nav li {
-    display: block;
-    flex: 0 1 auto;
-    margin-top: 0.8em;
-    margin-bottom: 0em;
-  }
-  nav a {
-    position: relative;
-    color: black;
-    text-decoration: none;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    display: inline-block;
-    opacity: 0.8;
-    transition: opacity 150ms ease-in-out;
-  }
-  nav a::before, nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: black;
-    transform: scaleX(0);
-    transition: transform 300ms ease-in-out;
-  }
-  nav a::before {
-    top: 0;
-    transform-origin: center;
-  }
-  nav a::after {
-    bottom: 0;
-    transform-origin: center;
-  }
-  nav a:hover::before, nav a:hover::after {
-    transform: scaleX(1);
-  }
-  nav a:hover, nav a:active {
-    color: rgb(68, 68, 68);
-  }
 }/*# sourceMappingURL=index.css.map */
 
 /*# sourceMappingURL=main.css.map*/
