@@ -7,19 +7,20 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
   -webkit-user-drag: none;
 }
 
 body {
   height: 100vh;
-  font: normal 75% Arial, Helvetica, sans-serif;
   margin: 0;
   font-size: 1em;
-  -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
+  font-family: Arial, sans-serif;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body ::-webkit-scrollbar {
+  display: none;
 }
 
 body::-webkit-scrollbar {
@@ -51,6 +52,15 @@ canvas {
   overflow-y: auto;
 }
 
+#aboutWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 2rem;
+  overflow-y: auto;
+}
+
 #contentContainer {
   z-index: 1;
   font-family: Inter, sans-serif;
@@ -75,6 +85,22 @@ canvas {
   margin-inline: 8vw;
   margin-block: 4rem;
   border-radius: 1rem;
+}
+
+.mediaSection {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  height: 100vh;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.mSecMedia {
+  flex-grow: 1;
+}
+
+.mSecContent {
+  flex-grow: 2;
 }
 
 #footerContainer {
@@ -122,6 +148,9 @@ canvas {
 #navContainer {
   display: flex;
   justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 #nameHeader {

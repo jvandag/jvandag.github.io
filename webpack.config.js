@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const htmlPages = ['index', 'projects']; // List all your HTML pages here without the .html extension
+
 module.exports = {
     mode: 'development',
     entry: {
@@ -51,11 +53,11 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
+        ...htmlPages.map(page => new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, `./src/${page}.html`),
             chunks: ['main'],
             inject: 'body',
-            filename: 'index.html',
-        }),
+            filename: `${page}.html`,
+        }))
     ],
 };
