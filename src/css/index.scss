@@ -61,7 +61,7 @@ canvas {
     padding-top: 2rem;
     overflow-y: auto;
 }
-
+  
 #contentContainer {
     z-index: 1;
     font-family: Inter, sans-serif;
@@ -174,72 +174,25 @@ canvas {
     font-size: 1.5rem;
 }
 
-header {
+#navBar {
     width: 92vw;
     display: flex;
-    //grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
-    flex-wrap: wrap;
     justify-content: center;
     text-shadow: 0px 0px 0.1em rgb(7, 42, 155);
     padding: 0.5rem;
     background: var(--NavBackground);
-    text-align: center;
     position: fixed;
     z-index: 1000;
     border-radius: 0 0 1rem 1rem;
-
-}
-
-
-
-.logo {
-    margin: 0;
-    position: relative;
     user-select: none;
-
-    img {
-        position: absolute;
-        top: 45%;
-        left: 45%;
-        height: 90%;
-        border-radius: 50%;
-        border: 2px solid rgba(0, 0, 0, 0.6);
-        transform: translate(-100%, -50%);
-        transition: 0.3s;
-    }
-
-}
-
-.logo img:hover {
-    filter: contrast(80%) hue-rotate(10deg) brightness(90%) drop-shadow(0.0em 0.0em 0.15em rgba(57, 71, 119, 0.733));
-}
-
-nav {
-    all: unset;
     font-family: Constantia;
-    display: flex;
-    justify-content: flex-end;
+}
 
-    * {
-        user-select: none;
-    }
-
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-
-        li {
-            display: block;
-            margin-top: 0.75em;
-            margin-bottom: 1em;
-            margin-left: 2em;
-        }
-    }
-
+.navItem {
+    padding: 0.5rem;
+    margin-inline: 1em;
+    margin-top: none;
+    margin-bottom: none;
 
     a {
         position: relative; // Make the anchor relative for the pseudo-elements
@@ -283,6 +236,25 @@ nav {
             color: rgb(68, 68, 68);
         }
     }
-}
 
-// End NAV and Header Stuff
+}
+.navLogo {
+    padding-inline: 1rem;
+    margin-top: none;
+    margin-bottom: none;
+    margin-right: auto;
+
+    img {
+        position: relative;
+        top: 50%;
+        left: 100%;
+        height: 3rem;
+        border-radius: 50%;
+        border: 2px solid rgba(0, 0, 0, 0.6);
+        transform: translate(-100%, -50%);
+        transition: 0.3s;
+    }
+    img:hover {
+        filter: contrast(80%) hue-rotate(10deg) brightness(90%) drop-shadow(0.0em 0.0em 0.15em rgba(57, 71, 119, 0.733));
+    }
+}
