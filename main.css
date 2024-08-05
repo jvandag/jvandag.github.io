@@ -228,6 +228,20 @@ canvas {
   text-align: left;
 }
 
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+.fadeInUp-animation {
+  animation: 1.5s fadeInUp;
+}
+
 .mSecHeader {
   padding-top: 1rem;
   margin: 0;
@@ -238,6 +252,12 @@ canvas {
 .mSecContent {
   display: flex;
   flex-direction: column;
+}
+
+.mSecText {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .mSecFooter {
