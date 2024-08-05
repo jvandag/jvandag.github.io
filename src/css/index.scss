@@ -1,6 +1,7 @@
 :root {
     --NavBackground: rgba(205, 205, 226, 1);
     --Background: rgba(205, 205, 226, 0.76);
+    --FooterBackground: rgba(205, 205, 226, 0.74);
 }
 
 *,
@@ -45,6 +46,112 @@ canvas {
     z-index: -99;
 }
 
+//NAV and Header Stuff
+
+#navContainer {
+    display: flex;
+    justify-content: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#nameHeader {
+    text-shadow: 0px 0px 0.1em rgba(7, 42, 155, 0.5);
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+#navBar {
+    width: 92vw;
+    display: flex;
+    justify-content: center;
+    text-shadow: 0px 0px 0.1em rgb(7, 42, 155);
+    padding: 0.75rem;
+    background: var(--NavBackground);
+    position: fixed;
+    z-index: 1000;
+    border-radius: 0 0 1rem 1rem;
+    user-select: none;
+    font-family: Constantia;
+}
+
+.navItem {
+    padding: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-inline: auto;
+    margin-top: none;
+    margin-bottom: none;
+    flex-wrap: wrap;
+
+    a {
+        position: relative; // Make the anchor relative for the pseudo-elements
+        color: black;
+        text-decoration: none;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        display: inline-block;
+        opacity: 0.8;
+        transition: opacity 150ms ease-in-out;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            transform: scaleX(0);
+            transition: transform 300ms ease-in-out;
+        }
+
+        &::before {
+            top: 0; // Position above the text
+            transform-origin: center;
+        }
+
+        &::after {
+            bottom: 0; // Position below the text
+            transform-origin: center;
+        }
+
+        &:hover::before,
+        &:hover::after {
+            transform: scaleX(1);
+        }
+
+        &:hover,
+        &:active {
+            color: rgb(68, 68, 68);
+        }
+    }
+
+}
+.navLogo {
+    padding-inline: 1rem;
+    margin-top: none;
+    margin-bottom: none;
+    //margin-right: auto;
+
+    img {
+        position: relative;
+        top: 50%;
+        left: 100%;
+        height: 3rem;
+        border-radius: 50%;
+        border: 2px solid rgba(0, 0, 0, 0.6);
+        transform: translate(-100%, -50%);
+        transition: 0.3s;
+    }
+    img:hover {
+        filter: contrast(80%) hue-rotate(10deg) brightness(90%) drop-shadow(0.0em 0.0em 0.15em rgba(57, 71, 119, 0.733));
+    }
+}
+
 #pageWrapper {
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -58,7 +165,7 @@ canvas {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    padding-top: 2rem;
+    padding-top: 0rem;
     overflow-y: auto;
 }
   
@@ -118,7 +225,7 @@ canvas {
 
 #footer {
     z-index: 99;
-    background: var(--NavBackground);
+    background: var(--FooterBackground);
     text-align: center;
     position: relative;
 
@@ -151,110 +258,5 @@ canvas {
         align-items: center;
         margin: 0 0.25em;
         font-weight: bold;
-    }
-}
-
-
-//NAV and Header Stuff
-
-#navContainer {
-    display: flex;
-    justify-content: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-#nameHeader {
-    text-shadow: 0px 0px 0.1em rgba(7, 42, 155, 0.5);
-    position: fixed;
-    margin: auto;
-    width: 100%;
-    font-size: 1.5rem;
-}
-
-#navBar {
-    width: 92vw;
-    display: flex;
-    justify-content: center;
-    text-shadow: 0px 0px 0.1em rgb(7, 42, 155);
-    padding: 0.5rem;
-    background: var(--NavBackground);
-    position: fixed;
-    z-index: 1000;
-    border-radius: 0 0 1rem 1rem;
-    user-select: none;
-    font-family: Constantia;
-}
-
-.navItem {
-    padding: 0.5rem;
-    margin-inline: 1em;
-    margin-top: none;
-    margin-bottom: none;
-
-    a {
-        position: relative; // Make the anchor relative for the pseudo-elements
-        color: black;
-        text-decoration: none;
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        display: inline-block;
-        opacity: 0.8;
-        transition: opacity 150ms ease-in-out;
-
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: black;
-            transform: scaleX(0);
-            transition: transform 300ms ease-in-out;
-        }
-
-        &::before {
-            top: 0; // Position above the text
-            transform-origin: center;
-        }
-
-        &::after {
-            bottom: 0; // Position below the text
-            transform-origin: center;
-        }
-
-        &:hover::before,
-        &:hover::after {
-            transform: scaleX(1);
-        }
-
-        &:hover,
-        &:active {
-            color: rgb(68, 68, 68);
-        }
-    }
-
-}
-.navLogo {
-    padding-inline: 1rem;
-    margin-top: none;
-    margin-bottom: none;
-    margin-right: auto;
-
-    img {
-        position: relative;
-        top: 50%;
-        left: 100%;
-        height: 3rem;
-        border-radius: 50%;
-        border: 2px solid rgba(0, 0, 0, 0.6);
-        transform: translate(-100%, -50%);
-        transition: 0.3s;
-    }
-    img:hover {
-        filter: contrast(80%) hue-rotate(10deg) brightness(90%) drop-shadow(0.0em 0.0em 0.15em rgba(57, 71, 119, 0.733));
     }
 }
