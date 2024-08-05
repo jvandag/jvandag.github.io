@@ -25,7 +25,7 @@ function parseUA() {
 var ua = parseUA();
 var metaTag=document.createElement('meta');
 metaTag.name = "viewport"
-if (ua.mobile && window.screen.width < 720) {
+if (ua.mobile || ua.ios || ua.android || ua.iPad || ua.iPad || ua.iosv || window.screen.width < 720) {
     metaTag.content = "width=720, initial-scale=1.0"
 }
 else {

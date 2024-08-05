@@ -36,7 +36,7 @@ canvas {
 #particles-js {
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 115vh;
   background-image: radial-gradient(farthest-corner at 30vw 20vh, #416b76 1%, #2b182c 100%);
   background-repeat: no-repeat;
   background-size: cover;
