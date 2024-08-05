@@ -1724,16 +1724,20 @@ var adjustContentCSS = function adjustContentCSS() {
   var aboutTile = document.getElementById("aboutTile");
   if (aboutTile) {
     window.addEventListener("resize", function () {
-      //the point at which the about tile will overlap with the navbar
-      var height = offset * 2 + aboutTile.offsetHeight + 5;
-      if (window.innerHeight <= height) {
+      //20% screen height up from center
+      var yTrans = 0.2;
+      var transOffset = window.outerHeight * yTrans;
+      var height = offset * 2 + aboutTile.offsetHeight + 30;
+      if (window.innerHeight <= height + transOffset) {
         aboutTile.style.position = 'fixed';
-        aboutTile.style.top = "".concat(offset + 5, "px");
+        aboutTile.style.top = "".concat(offset + 30, "px");
         aboutTile.style.right = "calc(50% - ".concat(aboutTile.offsetWidth / 2, "px)");
+        aboutTile.style.translate = "0 0%";
       } else {
         aboutTile.style.position = 'relative';
         aboutTile.style.top = "0px";
         aboutTile.style.right = "0px";
+        aboutTile.style.translate = "0 -20%";
       }
     });
     //check resize condition on page load
