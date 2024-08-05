@@ -223,6 +223,7 @@ canvas {
   border-radius: 1rem;
   color: black;
   text-align: left;
+  translate: 0 -20%;
 }
 
 @keyframes fadeInUp {
