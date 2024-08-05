@@ -45,6 +45,7 @@ canvas {
   background-size: cover;
   background-position: 50% 50%;
   z-index: -99;
+  overflow: hidden;
 }
 
 #navContainer {
