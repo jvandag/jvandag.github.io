@@ -1691,7 +1691,6 @@ if (ua.mobile && window.screen.width < 720) {
 document.getElementsByTagName('head')[0].appendChild(metaTag);
 var createBionicText = function createBionicText() {
   var textElems = document.getElementsByClassName("bionicText");
-  console.log(textElems);
   var i = 0;
   var _iterator = _createForOfIteratorHelper(textElems),
     _step;
@@ -1719,7 +1718,9 @@ var adjustContentCSS = function adjustContentCSS() {
   //container.style.paddingTop = `${offset*0.9}px`;  
 
   var contentBG = document.getElementById("contentBGWrapper");
-  contentBG.style.backgroundImage = "linear-gradient(transparent ".concat(offset - 1, "px, rgba(205, 205, 226, 0.75) calc(").concat(offset, "px + 3.5rem), rgba(205, 205, 226, 0.75) calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))");
+  if (contentBG) {
+    contentBG.style.backgroundImage = "linear-gradient(transparent ".concat(offset - 1, "px, rgba(205, 205, 226, 0.75) calc(").concat(offset, "px + 3.5rem), rgba(205, 205, 226, 0.75) calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))");
+  }
   if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
     //not webkit based
     //remove text clip color if not webkitbased
@@ -1734,7 +1735,6 @@ var adjustContentCSS = function adjustContentCSS() {
 adjustContentCSS();
 createBionicText();
 _assets_particles_json__WEBPACK_IMPORTED_MODULE_0__.particles.move.speed = parseFloat((window.outerHeight / 385).toFixed(2));
-console.log(_assets_particles_json__WEBPACK_IMPORTED_MODULE_0__.particles.move.speed);
 particlesJS("particles-js", _assets_particles_json__WEBPACK_IMPORTED_MODULE_0__);
 })();
 
