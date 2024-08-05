@@ -25,7 +25,7 @@ function parseUA() {
 var ua = parseUA();
 var metaTag=document.createElement('meta');
 metaTag.name = "viewport"
-if (ua.mobile) {
+if (ua.mobile && window.screen.width < 720) {
     metaTag.content = "width=720, initial-scale=1.0"
 }
 else {
@@ -36,7 +36,6 @@ document.getElementsByTagName('head')[0].appendChild(metaTag);
 
 const createBionicText = () => {
     let textElems = document.getElementsByClassName("bionicText");
-    console.log(textElems)
     let i = 0;
     for (const textBlock of textElems) {
         let temp = textBlock.textContent.split(' ').map((word) => {
@@ -58,7 +57,9 @@ const adjustContentCSS = () => {
      
 
     let contentBG = document.getElementById("contentBGWrapper");
-    contentBG.style.backgroundImage = `linear-gradient(transparent ${offset-1}px, rgba(205, 205, 226, 0.75) calc(${offset}px + 3.5rem), rgba(205, 205, 226, 0.75) calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))`
+    if (contentBG) {
+         contentBG.style.backgroundImage = `linear-gradient(transparent ${offset-1}px, rgba(205, 205, 226, 0.75) calc(${offset}px + 3.5rem), rgba(205, 205, 226, 0.75) calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))`
+    }
     
     if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
         //not webkit based
@@ -77,5 +78,4 @@ adjustContentCSS();
 createBionicText();
 
 config.particles.move.speed = parseFloat((window.outerHeight / 385).toFixed(2))
-console.log(config.particles.move.speed)
 particlesJS("particles-js", config);
