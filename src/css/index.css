@@ -29,7 +29,6 @@ body::-webkit-scrollbar {
 }
 
 canvas {
-  display: block;
   vertical-align: bottom;
 }
 
@@ -75,6 +74,8 @@ canvas {
      -moz-user-select: none;
           user-select: none;
   font-family: Constantia;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .navItem {
@@ -88,7 +89,6 @@ canvas {
   position: relative;
   color: black;
   text-decoration: none;
-  font-size: 1.2rem;
   text-transform: uppercase;
   display: inline-block;
   opacity: 0.8;
@@ -157,7 +157,7 @@ canvas {
 
 #contentContainer {
   z-index: 1;
-  font-family: Inter, sans-serif;
+  font-family: Constantia;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -183,33 +183,39 @@ canvas {
 
 .mediaSection {
   display: flex;
+  line-height: 1.5;
   height: 100%;
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.5rem;
   overflow-y: auto;
-  gap: 3rem;
+  gap: 1.5rem;
   justify-content: center;
+  overflow: scroll;
 }
 
 .mSecMedia {
-  flex-grow: 1;
   padding: 0.75rem;
+  --sideLength: calc(max(500px, 55vw)*0.32);
 }
 .mSecMedia img {
   position: relative;
-  top: 50%;
+  top: calc(var(--sideLength) * 0.5);
   left: 100%;
-  height: 100%;
+  height: var(--sideLength);
+  width: var(--sideLength);
   border-radius: 50%;
   border: 2px solid rgba(19, 19, 33, 0.8);
   transform: translate(-100%, -50%);
 }
 
-.aboutTile {
+#aboutTile {
+  z-index: 10;
+  --width: max(500px, 55vw);
   padding: 1rem;
-  height: 18rem;
-  width: 50rem;
+  height: clamp(-moz-fit-content, var(--width) * 0.32, 300vh);
+  height: clamp(fit-content, var(--width) * 0.32, 300vh);
+  width: var(--width);
   z-index: -2;
   background: rgba(205, 205, 226, 0.75);
   margin-inline: auto;
@@ -226,16 +232,14 @@ canvas {
 }
 
 .mSecContent {
-  flex-grow: 3;
   display: flex;
   flex-direction: column;
 }
 
 .mSecFooter {
   margin-top: auto;
-  padding: 0em;
+  padding-block: 0.5em;
   display: flex;
-  margin-left: -1rem;
   justify-content: flex-start;
 }
 
@@ -284,7 +288,7 @@ canvas {
 .aboutFooterIcon {
   height: 3rem;
   width: 3rem;
-  margin-inline: 1rem;
+  margin-right: 2rem;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgba(134, 134, 151, 0.76);
@@ -305,7 +309,7 @@ canvas {
   transition-duration: 0.25s;
 }
 .github-icon svg:hover path {
-  fill: rgba(72, 0, 98, 0.9);
+  fill: rgba(65, 0, 88, 0.9);
 }
 
 .linkedin-icon svg {
@@ -318,7 +322,7 @@ canvas {
   transition-duration: 0.25s;
 }
 .linkedin-icon svg:hover path {
-  fill: rgba(0, 115, 177, 0.8);
+  fill: rgba(1, 43, 158, 0.8);
 }
 
 .mail-icon svg {

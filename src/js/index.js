@@ -60,6 +60,27 @@ const adjustContentCSS = () => {
     if (contentBG) {
          contentBG.style.backgroundImage = `linear-gradient(transparent ${offset-1}px, rgba(205, 205, 226, 0.75) calc(${offset}px + 3.5rem), rgba(205, 205, 226, 0.75) calc(100% - 3.5rem ), transparent calc(100% - 0.5rem))`
     }
+    let aboutTile = document.getElementById("aboutTile");
+    if (aboutTile) {
+        window.addEventListener("resize", () => {
+            //the point at which the about tile will overlap with the navbar
+            let height = (offset*2) + (aboutTile.offsetHeight)+5
+            if (window.innerHeight <= height) {
+                aboutTile.style.position = 'fixed';
+                aboutTile.style.top = `${offset+5}px`;
+                aboutTile.style.right = `calc(50% - ${aboutTile.offsetWidth/2}px)`;
+            }
+            else {
+                aboutTile.style.position = 'relative';
+                aboutTile.style.top = `0px`;
+                aboutTile.style.right = `0px`;
+            }
+        });
+        //check resize condition on page load
+        let event = new Event('resize');
+        window.dispatchEvent(event);
+        
+    }
     
     if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
         //not webkit based
