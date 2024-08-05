@@ -1683,7 +1683,7 @@ function parseUA() {
 var ua = parseUA();
 var metaTag = document.createElement('meta');
 metaTag.name = "viewport";
-if (ua.mobile && window.screen.width < 1024) {
+if (ua.mobile || ua.ios || ua.android || ua.iPad || ua.iPad || using.iosv || window.screen.width < 1024) {
   metaTag.content = "width=1024, initial-scale=1.0";
 } else {
   metaTag.content = "width=device-width, initial-scale=1.0";
