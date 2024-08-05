@@ -1724,8 +1724,8 @@ var adjustContentCSS = function adjustContentCSS() {
   var aboutTile = document.getElementById("aboutTile");
   if (aboutTile) {
     window.addEventListener("resize", function () {
-      //20% screen height up from center
-      var yTrans = 0.2;
+      //15% screen height up from center
+      var yTrans = 0.15;
       var transOffset = window.outerHeight * yTrans;
       var height = offset * 2 + aboutTile.offsetHeight + 30;
       if (window.innerHeight <= height + transOffset) {
@@ -1737,7 +1737,7 @@ var adjustContentCSS = function adjustContentCSS() {
         aboutTile.style.position = 'relative';
         aboutTile.style.top = "0px";
         aboutTile.style.right = "0px";
-        aboutTile.style.translate = "0 -20%";
+        aboutTile.style.translate = "0 -15%";
       }
     });
     //check resize condition on page load
