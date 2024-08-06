@@ -166,17 +166,10 @@ canvas {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-clip: text;
-  background: linear-gradient(transparent 3.5rem, black 6rem, black calc(100% - 3.5rem), transparent calc(100% - 0.5rem));
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-attachment: fixed;
-  background-position: fixed;
-  color: transparent;
+  color: black;
 }
 
 #contentBGWrapper {
-  z-index: -2;
   background: linear-gradient(transparent 3.5rem, rgba(205, 205, 226, 0.75) 6rem, rgba(205, 205, 226, 0.75) calc(100% - 3.5rem), transparent calc(100% - 0.5rem));
   background-attachment: fixed;
   padding: 2rem;
@@ -214,7 +207,6 @@ canvas {
 }
 
 #aboutTile {
-  z-index: 10;
   --width: max(500px, 55vw);
   padding: 1rem;
   height: clamp(-moz-fit-content, var(--width) * 0.32, 300vh);

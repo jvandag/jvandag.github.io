@@ -1744,15 +1744,31 @@ var adjustContentCSS = function adjustContentCSS() {
     var event = new Event('resize');
     window.dispatchEvent(event);
   }
-  if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
-    //not webkit based
-    //remove text clip color if not webkitbased
-    var content = document.getElementById("contentContainer");
-    if (content) {
-      content.style.backgroundImage = 'none';
-      content.style.background = 'none';
-      content.style.color = 'black';
-    }
+
+  // if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
+  //     //not webkit based
+  //     //remove text clip color if not webkitbased
+  //     let content = document.getElementById("contentContainer")
+  //     if (content) {
+  //         content.style.backgroundImage = 'none'
+  //         content.style.background = 'none'
+  //         content.style.color = 'black'
+  //     }
+  // }
+
+  // Get the current path
+  var path = window.location.pathname;
+
+  // Extract the filename
+  var pageName = path.split('/').pop();
+  switch (pageName) {
+    case "contact.html":
+      var iFrame = document.getElementById('contactForm');
+      console.log(iFrame);
+      var height = iFrame.contentWindow.parent.outerHeight;
+      console.log(height);
+      //iFrame.height = height;
+      return;
   }
 };
 adjustContentCSS();
