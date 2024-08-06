@@ -1726,11 +1726,11 @@ var adjustContentCSS = function adjustContentCSS() {
     window.addEventListener("resize", function () {
       //15% screen height up from center
       var yTrans = 0.15;
-      var transOffset = window.outerHeight * yTrans;
-      var height = offset * 2 + aboutTile.offsetHeight + 30;
-      if (window.innerHeight <= height + transOffset) {
+      //let transOffset = window.outerHeight*yTrans;
+      var height = (1 + yTrans) * (offset * 2 + aboutTile.offsetHeight + 32);
+      if (window.innerHeight <= height) {
         aboutTile.style.position = 'fixed';
-        aboutTile.style.top = "".concat(offset + 30, "px");
+        aboutTile.style.top = "".concat(offset, "px");
         aboutTile.style.right = "calc(50% - ".concat(aboutTile.offsetWidth / 2, "px)");
         aboutTile.style.translate = "0 0%";
       } else {
