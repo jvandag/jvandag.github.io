@@ -16,16 +16,15 @@ body {
   margin: 0;
   font-size: 1em;
   overflow: -moz-scrollbars-none;
+  overflow: scroll;
   font-family: Arial, sans-serif;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-body ::-webkit-scrollbar {
-  display: none;
-}
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0;
+  display: none;
 }
 
 canvas {
@@ -143,7 +142,7 @@ canvas {
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
-  padding-top: 2rem;
+  padding-top: 3rem;
   overflow-y: auto;
 }
 
@@ -162,18 +161,10 @@ canvas {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  background-clip: text;
-  background: linear-gradient(transparent 3.5rem, black 6rem, black calc(100% - 3.5rem), transparent calc(100% - 0.5rem));
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-attachment: fixed;
-  background-position: fixed;
-  color: transparent;
+  color: black;
 }
 
 #contentBGWrapper {
-  z-index: -2;
   background: linear-gradient(transparent 3.5rem, rgba(205, 205, 226, 0.75) 6rem, rgba(205, 205, 226, 0.75) calc(100% - 3.5rem), transparent calc(100% - 0.5rem));
   background-attachment: fixed;
   padding: 2rem;
@@ -211,7 +202,6 @@ canvas {
 }
 
 #aboutTile {
-  z-index: 10;
   --width: max(500px, 55vw);
   padding: 1rem;
   height: clamp(-moz-fit-content, var(--width) * 0.32, 300vh);
@@ -223,7 +213,7 @@ canvas {
   border-radius: 1rem;
   color: black;
   text-align: left;
-  translate: 0 -20%;
+  translate: 0 -15%;
 }
 
 @keyframes fadeInUp {
@@ -263,6 +253,46 @@ canvas {
   padding-block: 0.5em;
   display: flex;
   justify-content: flex-start;
+}
+
+.projectSection {
+  display: flex;
+  line-height: 1.5;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  padding: 0.5rem;
+  overflow-y: auto;
+  gap: 1.5rem;
+  overflow: scroll;
+}
+@media (max-width: 721px) {
+  .projectSection {
+    flex-direction: column;
+  }
+}
+
+.projectMedia {
+  padding: 0.75rem;
+  --sideLength: clamp(275px, 25vw, 35vh);
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 721px) {
+  .projectMedia {
+    --sideLength: 100% ;
+  }
+}
+.projectMedia img {
+  position: relative;
+  height: var(--sideLength);
+  width: var(--sideLength);
+  border-radius: 50%;
+  border: 2px solid rgba(19, 19, 33, 0.8);
+}
+.projectContent {
+  display: flex;
+  flex-direction: column;
 }
 
 #footerContainer {

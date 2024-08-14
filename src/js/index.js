@@ -64,21 +64,20 @@ const adjustContentCSS = () => {
     if (aboutTile) {
 
         window.addEventListener("resize", () => {
-            //20% screen height up from center
-            const yTrans = 0.2;
-            let transOffset = window.outerHeight*yTrans;
-            let height = (offset*2) + ((aboutTile.offsetHeight))+30;
-            if (window.innerHeight <= height+transOffset) {
+            //15% screen height up from center
+            const yTrans = 0.15;
+            let height = (1+yTrans)*((offset*2) + (aboutTile.offsetHeight)+32);
+            if (window.innerHeight <= height) {
                 aboutTile.style.position = 'fixed';
-                aboutTile.style.top = `${offset+30}px`;
+                aboutTile.style.top = `${offset}px`;
                 aboutTile.style.right = `calc(50% - ${(aboutTile.offsetWidth)/2}px)`;
-                 aboutTile.style.translate = `0 0%`
+                aboutTile.style.translate = `0 0%`;
             }
             else {
                 aboutTile.style.position = 'relative';
                 aboutTile.style.top = `0px`;
                 aboutTile.style.right = `0px`;
-                aboutTile.style.translate = `0 -20%`
+                aboutTile.style.translate = `0 -15%`
             }
         });
         //check resize condition on page load
@@ -87,15 +86,31 @@ const adjustContentCSS = () => {
         
     }
     
-    if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
-        //not webkit based
-        //remove text clip color if not webkitbased
-        let content = document.getElementById("contentContainer")
-        if (content) {
-            content.style.backgroundImage = 'none'
-            content.style.background = 'none'
-            content.style.color = 'black'
-        }
+    // if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
+    //     //not webkit based
+    //     //remove text clip color if not webkitbased
+    //     let content = document.getElementById("contentContainer")
+    //     if (content) {
+    //         content.style.backgroundImage = 'none'
+    //         content.style.background = 'none'
+    //         content.style.color = 'black'
+    //     }
+    // }
+
+    // Get the current path
+    const path = window.location.pathname;
+    
+    // Extract the filename
+    const pageName = path.split('/').pop();
+
+    switch (pageName) {
+        case "contact.html":
+            let iFrame = document.getElementById('contactForm')
+            console.log(iFrame)
+            let height = iFrame.contentWindow.parent.outerHeight;
+            console.log(height)
+            //iFrame.height = height;
+            return;
     }
     
 }

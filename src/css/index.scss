@@ -17,16 +17,16 @@ body {
     margin: 0;
     font-size: 1em;
     overflow: -moz-scrollbars-none;
+    overflow: scroll;
     font-family: Arial, sans-serif;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    ::-webkit-scrollbar {
-    display: none;
-    }
+    
 }
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 0;
+    display: none;
 }
 
 canvas {
@@ -157,7 +157,7 @@ canvas {
     display: grid;
     grid-template-rows: auto 1fr auto;
     height: 100vh;
-    padding-top: 2rem;
+    padding-top: 3rem;
     overflow-y: auto;
 }
 
@@ -176,19 +176,18 @@ canvas {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    background-clip: text;
-    background: linear-gradient(transparent 3.5rem, black 6rem, black calc(100% - 3.5rem), transparent calc(100% - 0.5rem));
-    background-clip: text;
-    -webkit-background-clip: text;
-    background-attachment: fixed;
-    background-position: fixed;
-
-    color: transparent //color: rgba(255, 0, 0, 0.072);
+    //text-align: center;
+    //background-clip: text;
+    //background: linear-gradient(transparent 3.5rem, black 6rem, black calc(100% - 3.5rem), transparent calc(100% - 0.5rem));
+    //background-clip: text;
+    //-webkit-background-clip: text;
+    //background-attachment: fixed;
+    //background-position: fixed;
+    //color: transparent //color: rgba(255, 0, 0, 0.072);
+    color: black;
 }
 
 #contentBGWrapper {
-    z-index: -2;
     background: linear-gradient(transparent 3.5rem, rgba(205, 205, 226, 0.75) 6rem, rgba(205, 205, 226, 0.75) calc(100% - 3.5rem), transparent calc(100% - 0.5rem));
     //background-clip: all;
     background-attachment: fixed;
@@ -227,7 +226,6 @@ canvas {
 }
 
 #aboutTile {
-    z-index: 10;
     --width: max(500px, 55vw);
     padding: 1rem;
     height: clamp(fit-content, calc(var(--width)*0.32), 300vh);
@@ -239,7 +237,7 @@ canvas {
     color: black;
     text-align: left;
     //margin-bottom: 10%;
-    translate: 0 -20%;
+    translate: 0 -15%;
 }
 
 @keyframes fadeInUp {
@@ -267,7 +265,6 @@ canvas {
 .mSecContent {
     display: flex;
     flex-direction: column
-    
 }
 
 .mSecText {
@@ -281,6 +278,51 @@ canvas {
     padding-block: 0.5em;
     display: flex;
     justify-content: flex-start;
+}
+
+.projectSection {
+    display: flex;
+    line-height: 1.5;
+    height: fit-content;
+    width: 100%;
+    padding: 0.5rem;
+    overflow-y: auto;
+    gap: 1.5rem;
+    overflow: scroll;
+    //align-items: start;
+    //flex-direction: column;
+    @media (max-width: 721px) {
+        flex-direction: column;
+      }
+}
+
+.projectMedia {
+    padding: 0.75rem;
+    --sideLength: clamp(275px, 25vw, 35vh);
+    @media (max-width: 721px) {
+        --sideLength: 100%
+      }
+    display: flex;
+    justify-content: center;
+    img {
+        position: relative;
+        //top: calc(var(--sideLength)*0.5);
+        //left: 0%;
+        height: var(--sideLength);
+        width: var(--sideLength);
+        border-radius: 50%;
+        border: 2px solid rgba(19, 19, 33, 0.8);
+        //transition: transform .5s;
+        //transform: translate(-100%, -50%);
+    }
+    img:hover {
+        //transform: scale(2.5);
+    }
+}
+
+.projectContent {
+    display: flex;
+    flex-direction: column
 }
 
 #footerContainer {
@@ -385,7 +427,6 @@ canvas {
     svg {
         height: 80%;
         width: 80%;
-
         path {
             fill: rgba(0, 0, 0, 0.75);
             transition-timing-function: cubic-bezier(.2,0,.4,1);

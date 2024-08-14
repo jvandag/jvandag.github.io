@@ -51,7 +51,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: 'css/[name].[hash].css',
         }),
         ...htmlPages.map(page => new HtmlWebpackPlugin({
             template: path.resolve(__dirname, `./src/${page}.html`),
