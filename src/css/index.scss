@@ -12,6 +12,10 @@
     -webkit-user-drag: none;
 }
 
+* img {
+    user-select: none;
+}
+
 body {
     height: 100vh;
     margin: 0;
@@ -296,6 +300,12 @@ canvas {
       }
 }
 
+.projectTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .projectMedia {
     padding: 0.75rem;
     --sideLength: clamp(275px, 25vw, 35vh);
@@ -385,6 +395,21 @@ canvas {
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(15, 18, 49, 0.271);
+}
+
+.titleIcon {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-left: 0.75rem;
+    background-repeat: no-repeat;
+    //background-size: cover; 
+    //background-color: rgba(134, 134, 151, 0.76);;
+    //border-radius: 99rem;
+    transform: translate(0%, 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //border: 1px solid rgba(15, 18, 49, 0.271);
 }
 
 .github-icon {
