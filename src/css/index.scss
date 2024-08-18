@@ -230,6 +230,7 @@ canvas {
 }
 
 #aboutTile {
+    position:absolute;
     --width: max(500px, 55vw);
     padding: 1rem;
     height: clamp(fit-content, calc(var(--width)*0.32), 300vh);
@@ -240,8 +241,10 @@ canvas {
     border-radius: 1rem;
     color: black;
     text-align: left;
-    //margin-bottom: 10%;
-    translate: 0 -15%;
+    top: 25%;
+    left: 0;
+    right: 0;
+    margin: auto
 }
 
 @keyframes fadeInUp {
@@ -320,7 +323,6 @@ canvas {
         //left: 0%;
         height: var(--sideLength);
         width: var(--sideLength);
-        border-radius: 50%;
         border: 2px solid rgba(19, 19, 33, 0.8);
         //transition: transform .5s;
         //transform: translate(-100%, -50%);

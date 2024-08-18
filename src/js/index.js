@@ -62,28 +62,7 @@ const adjustContentCSS = () => {
     }
     let aboutTile = document.getElementById("aboutTile");
     if (aboutTile) {
-
-        window.addEventListener("resize", () => {
-            //15% screen height up from center
-            const yTrans = 0.15;
-            let height = (1+yTrans)*((offset*2) + (aboutTile.offsetHeight)+32);
-            if (window.innerHeight <= height) {
-                aboutTile.style.position = 'fixed';
-                aboutTile.style.top = `${offset}px`;
-                aboutTile.style.right = `calc(50% - ${(aboutTile.offsetWidth)/2}px)`;
-                aboutTile.style.translate = `0 0%`;
-            }
-            else {
-                aboutTile.style.position = 'relative';
-                aboutTile.style.top = `0px`;
-                aboutTile.style.right = `0px`;
-                aboutTile.style.translate = `0 -15%`
-            }
-        });
-        //check resize condition on page load
-        let event = new Event('resize');
-        window.dispatchEvent(event);
-        
+        aboutTile.style.top = `max(25%, ${offset}px)`;
     }
     
     // if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
