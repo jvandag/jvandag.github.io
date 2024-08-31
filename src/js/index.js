@@ -62,7 +62,7 @@ const adjustContentCSS = () => {
     }
     let aboutTile = document.getElementById("aboutTile");
     if (aboutTile) {
-        aboutTile.style.top = `max(25%, ${offset}px)`;
+        aboutTile.style.top = `max(25%, ${offset}px + 1rem)`;
     }
     
     // if (navigator.userAgent.indexOf('AppleWebKit') === -1) {

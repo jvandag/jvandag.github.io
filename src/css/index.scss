@@ -230,7 +230,7 @@ canvas {
 }
 
 #aboutTile {
-    position:absolute;
+    position: absolute;
     --width: max(500px, 55vw);
     padding: 1rem;
     height: clamp(fit-content, calc(var(--width)*0.32), 300vh);
