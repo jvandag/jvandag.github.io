@@ -20,7 +20,7 @@
 body {
   height: 100vh;
   margin: 0;
-  font-size: 1em;
+  font-size: 1rem;
   overflow: -moz-scrollbars-none;
   overflow: scroll;
   font-family: Arial, sans-serif;
