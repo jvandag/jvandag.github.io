@@ -14,21 +14,26 @@
   -webkit-user-drag: none;
 }
 
+* img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 body {
   height: 100vh;
   margin: 0;
   font-size: 1em;
   overflow: -moz-scrollbars-none;
+  overflow: scroll;
   font-family: Arial, sans-serif;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-body ::-webkit-scrollbar {
-  display: none;
-}
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0;
+  display: none;
 }
 
 canvas {
@@ -146,7 +151,7 @@ canvas {
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
-  padding-top: 2rem;
+  padding-top: 3rem;
   overflow-y: auto;
 }
 
@@ -165,7 +170,6 @@ canvas {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: black;
 }
 
@@ -207,6 +211,7 @@ canvas {
 }
 
 #aboutTile {
+  position: absolute;
   --width: max(500px, 55vw);
   padding: 1rem;
   height: clamp(-moz-fit-content, var(--width) * 0.32, 300vh);
@@ -218,7 +223,10 @@ canvas {
   border-radius: 1rem;
   color: black;
   text-align: left;
-  translate: 0 -15%;
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 @keyframes fadeInUp {
@@ -232,7 +240,7 @@ canvas {
   }
 }
 .fadeInUp-animation {
-  animation: 2s fadeInUp;
+  animation: 1.5s fadeInUp;
 }
 
 .mSecHeader {
@@ -258,6 +266,51 @@ canvas {
   padding-block: 0.5em;
   display: flex;
   justify-content: flex-start;
+}
+
+.projectSection {
+  display: flex;
+  line-height: 1.5;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  padding: 0.5rem;
+  overflow-y: auto;
+  gap: 1.5rem;
+  overflow: scroll;
+}
+@media (max-width: 721px) {
+  .projectSection {
+    flex-direction: column;
+  }
+}
+
+.projectTitle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.projectMedia {
+  padding: 0.75rem;
+  --sideLength: clamp(275px, 25vw, 35vh);
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 721px) {
+  .projectMedia {
+    --sideLength: 100% ;
+  }
+}
+.projectMedia img {
+  position: relative;
+  height: var(--sideLength);
+  width: var(--sideLength);
+  border: 2px solid rgba(19, 19, 33, 0.8);
+}
+.projectContent {
+  display: flex;
+  flex-direction: column;
 }
 
 #footerContainer {
@@ -316,6 +369,17 @@ canvas {
   border: 1px solid rgba(15, 18, 49, 0.271);
 }
 
+.titleIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 0.75rem;
+  background-repeat: no-repeat;
+  transform: translate(0%, 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .github-icon svg {
   height: 60%;
   width: 60%;
@@ -355,4 +419,4 @@ canvas {
   fill: rgb(42, 87, 43);
 }/*# sourceMappingURL=index.css.map */
 
-/*# sourceMappingURL=main.css.map*/
+/*# sourceMappingURL=main.8ec6b6e904c5bb6ad0da.css.map*/

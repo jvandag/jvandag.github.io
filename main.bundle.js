@@ -1723,26 +1723,7 @@ var adjustContentCSS = function adjustContentCSS() {
   }
   var aboutTile = document.getElementById("aboutTile");
   if (aboutTile) {
-    window.addEventListener("resize", function () {
-      //15% screen height up from center
-      var yTrans = 0.15;
-      //let transOffset = window.outerHeight*yTrans;
-      var height = (1 + yTrans) * (offset * 2 + aboutTile.offsetHeight + 32);
-      if (window.innerHeight <= height) {
-        aboutTile.style.position = 'fixed';
-        aboutTile.style.top = "".concat(offset, "px");
-        aboutTile.style.right = "calc(50% - ".concat(aboutTile.offsetWidth / 2, "px)");
-        aboutTile.style.translate = "0 0%";
-      } else {
-        aboutTile.style.position = 'relative';
-        aboutTile.style.top = "0px";
-        aboutTile.style.right = "0px";
-        aboutTile.style.translate = "0 -15%";
-      }
-    });
-    //check resize condition on page load
-    var event = new Event('resize');
-    window.dispatchEvent(event);
+    aboutTile.style.top = "max(25%, ".concat(offset, "px + 1rem)");
   }
 
   // if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
@@ -1773,7 +1754,7 @@ var adjustContentCSS = function adjustContentCSS() {
 };
 adjustContentCSS();
 createBionicText();
-_assets_particles_json__WEBPACK_IMPORTED_MODULE_0__.particles.move.speed = parseFloat((window.outerHeight / 385).toFixed(2));
+_assets_particles_json__WEBPACK_IMPORTED_MODULE_0__.particles.move.speed = parseFloat((window.innerHeight / 1250).toFixed(2));
 particlesJS("particles-js", _assets_particles_json__WEBPACK_IMPORTED_MODULE_0__);
 })();
 
