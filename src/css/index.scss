@@ -215,7 +215,7 @@ canvas {
 }
 
 .mSecMedia {
-    padding: 0.75rem;
+    padding: max(2%, 0.75rem);
     --sideLength: calc(max(500px, 55vw)*0.32);
     img {
         position: relative;
@@ -265,7 +265,12 @@ canvas {
 .mSecHeader {
     padding-top: 1rem;
     margin: 0;
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
+    font-size: clamp(
+    1.5em,
+    1.5cqw,
+    4.5cqh  
+  );
     line-height: normal;
 }
 
@@ -274,10 +279,19 @@ canvas {
     flex-direction: column
 }
 
+
+$min-font   : 1rem;  // never go below 1rem
+$pref-font  : 5vw;   // try 5% of the viewport width
+$max-font   : 10vh;  // clamp at 10% of the viewport height
 .mSecText {
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    font-size: clamp(
+    1em,
+    1cqw,
+    3cqh  
+  );
 }
 
 .mSecFooter {
