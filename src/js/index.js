@@ -97,5 +97,5 @@ const adjustContentCSS = () => {
 adjustContentCSS();
 createBionicText();
 
-config.particles.move.speed = parseFloat((window.innerHeight/1250).toFixed(2))
+config.particles.move.speed = parseFloat((window.innerHeight/1000).toFixed(2))
 particlesJS("particles-js", config);
